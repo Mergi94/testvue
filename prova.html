@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width, initial-scale=1.0">
+	<title>Prova Vue.js</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Vue Js prima applicazione</h1>
+		<hr>
+		<div id="app">
+			{{ message }}
+		</div>
+	</div>
+</body>
+<script>
+var app = new Vue({
+	el: 'app',
+	data: {
+		message : 'Ciao da Rita'
+	}
+})
+</script>
+</html>

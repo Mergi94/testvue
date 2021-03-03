@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width, initial-scale=1.0">
+	<title>Prova Vue.js</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+	
+	
+	
+</head>
+<body>
+	
+	<div class="container">
+		<h1>Prima pagina con Vue!</h1>
+		Directive direttive
+		v- nome direttiva:nome argomento 
+		<ul>
+			<li>v-On | Eventi</li>
+			<li>Function | $event</li>
+			<li>Mounted</li>
+		</ul>
+		<hr>
+		<div id="app">
+			<h2>Contatore</h2>
+			<p style="font-size:12em">{{ counter }}</p>
+			<div class="row">
+				<div class="col-6">
+					<button v-bind:disabled='maxDisabled' @click="changeCounter('+')" style="font-size:6em" >+</button>
+				</div>
+				<div class="col-6">
+					<button v-bind:disabled='minDisabled' @click="changeCounter('-')" style="font-size:6em" >-</button>
+				</div>
+				<h1>{{ counter }}</h1>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+
+var app = new Vue({
+	el: '#app' ,
+	data: {
+		min : 3,
+		
+		max : 10,
+		minDisabled : true,
+		maxDisabled : false,
+		counter: '0'
+	},
+	mounted : function() {
+		console.log('montato correttamente');
+		this.counter = 3;
+	},
+	methods : {
+		changeCounter(direction){
+			console.log("changeCounter :" + direction);
+			if(direction == '+'){
+				if(this.counter < this.max){
+				this.counter++;
+			}
+			}else if(direction == '-'){
+				if(this.counter > this.min){
+				this.counter--;
+			}
+			}
+			
+			if(this.counter >= this.max){
+				this.minDisabled = false;
+				this.maxDisabled = true;
+			}else if(this.counter <= this.min){
+				this.minDisabled = true;
+				this.maxDisabled = false;
+			}else{ 
+				this.minDisabled = false;
+				this.maxDisabled = false;
+			}
+		}
+
+	}
+})
+</script>
+</html>

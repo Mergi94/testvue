@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<div id="vue">
+  <input type="radio" v-model="mese" v-bind:value="'marzo'"> Marzo
+  <input type="radio" v-model="mese" v-bind:value="'aprile'"> Aprile
+  <input type="radio" v-model="mese" v-bind:value="'maggio'"> Maggio
+
+		
+  <br/>
+  <input type="checkbox" v-model="tv" v-bind:true-value="'si'" v-bind:false-value="'no'">tv
+  <input type="checkbox" v-model="sauna" v-bind:true-value="'si'" v-bind:false-value="'no'">sauna
+  <br/><br/>
+  {{ mese }} - {{ tv }} - {{ sauna }}
+</div>
+</html>
+<script>
+
+new Vue({
+  el: '#vue',
+  data: {
+    mese: 'marzo',
+    tv: 'si',
+    sauna: 'no'
+  }
+})
+</script>
